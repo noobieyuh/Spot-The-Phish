@@ -1,0 +1,12 @@
+# Lock files
+*-lock.json
+*-lock.yaml
+
+# IDE(s)
+.idea/
+.vscode/
+
+# Project files
+.github/
+dist/
+release/
