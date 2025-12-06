@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "An application that scans emails and detects for phishing attempts.",
   "keywords": [
+    "phish",
     "phishing"
   ],
   "homepage": "https://github.com/noobieyuh/Spot-The-Phish#readme",

@@ -2,7 +2,7 @@
 *-lock.json
 *-lock.yaml
 
-# IDEs
+# IDE(s)
 .idea/
 .vscode/
 
