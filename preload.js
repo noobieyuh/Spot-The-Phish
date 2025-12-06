@@ -1,3 +1,4 @@
+// From the JellyPhishers
 const { contextBridge } = require('electron')
 
 contextBridge.exposeInMainWorld('versions', {
