@@ -38,6 +38,7 @@
     "define-properties": "^1.2.1",
     "detect-node": "^2.1.0",
     "electron": "^39.2.6",
+    "electron-builder": "^26.0.12",
     "end-of-stream": "^1.4.5",
     "env-paths": "^2.2.1",
     "es-define-property": "^1.0.1",
@@ -85,6 +86,5 @@
     "universalify": "^0.1.2",
     "wrappy": "^1.0.2",
     "yauzl": "^2.10.0"
-  },
-  "devDependencies": {}
+  }
 }
