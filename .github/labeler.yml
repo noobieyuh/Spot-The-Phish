@@ -1,0 +1,15 @@
+root:
+- '*'
+
+documentation:
+- 'README.md'
+
+source:
+- 'src/**/*'
+
+github:
+- '.github/**/*'
+
+dependencies:
+- 'package-lock.json'
+- 'package.json'
