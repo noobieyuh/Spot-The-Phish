@@ -14,4 +14,4 @@ Spot the Phish will take emails and scan them with AI to evaluate if the followi
 
 **(More detailed README will be added when project development starts)**
 
-###### Made with love <3
+###### Made with love by noobieyuh <3
