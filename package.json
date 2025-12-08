@@ -57,7 +57,7 @@
     "http2-wrapper": "^1.0.3",
     "json-buffer": "^3.0.1",
     "json-stringify-safe": "^5.0.1",
-    "jsonfile": "^4.0.0",
+    "jsonfile": "^6.2.0",
     "keyv": "^5.5.5",
     "lowercase-keys": "^3.0.0",
     "matcher": "^3.0.0",
