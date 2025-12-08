@@ -59,7 +59,7 @@
     "json-stringify-safe": "^5.0.1",
     "jsonfile": "^6.2.0",
     "keyv": "^5.5.5",
-    "lowercase-keys": "^2.0.0",
+    "lowercase-keys": "^3.0.0",
     "matcher": "^3.0.0",
     "mimic-response": "^1.0.1",
     "ms": "^2.1.3",
