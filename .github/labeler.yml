@@ -2,6 +2,7 @@ root:
 - '*'
 
 documentation:
+- 'docs/**/*'
 - 'README.md'
 
 source:
