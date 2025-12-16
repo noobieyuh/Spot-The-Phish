@@ -1,8 +1,12 @@
 {
   "name": "spot-the-phish",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
+  "description": "An application that scans emails and detects for phishing attempts.",
+  "author": "Andy Nguyen <tallandynguyen@gmail.com> (https://github.com/noobieyuh/)",
+  "contributors": [
+    "Diego Beltran <noodlezecoolie@gmail.com>"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && electron-builder",
