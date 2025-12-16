@@ -1,16 +1,16 @@
-root:
+2. root:
 - '*'
 
-documentation:
+5. documentation:
 - 'docs/**/*'
 - 'README.md'
 
-source:
+4. source:
 - 'src/**/*'
 
-github:
+3. github:
 - '.github/**/*'
 
-dependencies:
+6. dependencies:
 - 'package-lock.json'
 - 'package.json'
