@@ -3,6 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/electron-vite.animate.svg'
 import './App.css'
 
+function uploadFile()
+{
+  window.electronAPI.openFileDialog().then((filePath: string) => {
+    if (filePath) {
+      console.log('File: ', filePath)
+    }
+  })
+}
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -13,12 +22,15 @@ function App() {
         Upload a <code> .txt </code> file to get started using the button below :p
       </p>
       <div className="card">
-        <button>
+        <button onClick={uploadFile}>
           Upload File
         </button>
       </div>
       <p className="info">
         (This is a prototype, this is not an accurate representation of the final product)
+      </p>
+      <p className="info">
+        <a href='https://github.com/noobieyuh/Spot-The-Phish' target='_blank'>GitHub</a>
       </p>
     </>
   )

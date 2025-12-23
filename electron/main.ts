@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, dialog, ipcMain } from 'electron'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
@@ -6,6 +6,16 @@ import { Notification } from 'electron'
 
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+ipcMain.handle('open-file', async () => {
+  const result = await dialog.showOpenDialog({
+    title: 'Select the text file containing the email',
+    filters: [{ name: 'Text Files', extensions: ['txt'] }],
+    properties: ['openFile']
+  })
+
+  return result.filePaths[0]
+})
 
 // The built directory structure
 //
@@ -41,6 +51,7 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
       devTools: false,
+      nodeIntegration: true
     },
   })
 
