@@ -14,3 +14,24 @@
 6. dependencies:
 - 'package-lock.json'
 - 'package.json'
+
+7. public:
+- 'public/**/*'
+
+8. assets:
+- 'assets/**/*'
+
+9. electron:
+- 'electron/**/*'
+
+10. prettier:
+- '.prettierignore'
+- '.prettierrc'
+
+11. config:
+- 'tsconfig.json'
+- 'tsconfig.node.json'
+- 'vite.config.ts'
+- 'electron-builder.json5'
+- '.gitignore'
+- '.eslintrc.cjs'
