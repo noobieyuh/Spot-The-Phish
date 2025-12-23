@@ -4,7 +4,7 @@
   "appId": "com.spot-the-phish.app",
   "asar": true,
   "productName": "Spot The Phish",
-  "icon": "/assets/ico/stpmail.ico",
+  "icon": "/assets/ico/mail.ico",
   "directories": {
     "output": "release/${version}"
   },
