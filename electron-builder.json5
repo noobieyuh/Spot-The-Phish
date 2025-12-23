@@ -4,7 +4,6 @@
   "appId": "com.spot-the-phish.app",
   "asar": true,
   "productName": "Spot The Phish",
-  "icon": "/assets/ico/mail.ico",
   "directories": {
     "output": "release/${version}"
   },
@@ -19,6 +18,7 @@
     "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
   },
   "win": {
+    "icon": "assets/ico/mail.ico",
     "target": [
       {
         "target": "nsis",
@@ -36,6 +36,7 @@
     "deleteAppDataOnUninstall": false
   },
   "linux": {
+    "icon": "assets/ico/mail.png",
     "target": [
       "AppImage"
     ],
