@@ -7,7 +7,7 @@ function uploadFile()
 {
   window.electronAPI.openFileDialog().then((filePath: string) => {
     if (filePath) {
-      console.log('File: ', filePath)
+      console.log('File:', filePath)
     }
   })
 }
