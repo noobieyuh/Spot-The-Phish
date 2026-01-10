@@ -1,32 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/electron-vite.animate.svg'
 import './App.css'
 
+function uploadFile()
+{
+  window.electronAPI.openFileDialog().then((filePath: string | null) => {
+    if (filePath) {
+      document.getElementById('results')!.innerHTML = 'Rating: (WIP)'
+    }
+  })
+}
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://electron-vite.github.io" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h1>Spot The Phish</h1>
+      <p className="info">
+        Upload a <code> .txt </code> file to get started using the button below
+      </p>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={uploadFile}>
+          Upload File
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+      <p id="results">Results will be here!</p>
+      <p className="info">
+        (This is a prototype, this is not an accurate representation of the final product)
+      </p>
+      <p className="info">
+        <a href='https://github.com/noobieyuh/Spot-The-Phish' target='_blank'>GitHub</a>
       </p>
     </>
   )

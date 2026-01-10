@@ -22,3 +22,17 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
   // You can expose other APTs you need here.
   // ...
 })
+
+contextBridge.exposeInMainWorld('electronAPI', {
+  openFileDialog: () => ipcRenderer.invoke('open-file')
+})
+
+export interface IElectronAPI {
+  openFileDialog: () => Promise<string>;
+}
+
+declare global {
+  interface Window {
+    electronAPI: IElectronAPI;
+  }
+}

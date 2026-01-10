@@ -1,23 +1,22 @@
-import { app, BrowserWindow } from 'electron'
-import { createRequire } from 'node:module'
+import { app, BrowserWindow, dialog, ipcMain } from 'electron'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
+import { Notification } from 'electron'
 
-const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// The built directory structure
-//
-// ├─┬─┬ dist
-// │ │ └── index.html
-// │ │
-// │ ├─┬ dist-electron
-// │ │ ├── main.js
-// │ │ └── preload.mjs
-// │
+ipcMain.handle('open-file', async () => {
+  const result = await dialog.showOpenDialog({
+    title: 'Select the text file containing the email',
+    filters: [{ name: 'Text Files', extensions: ['txt'] }],
+    properties: ['openFile']
+  })
+
+  return result.filePaths[0]
+})
+
 process.env.APP_ROOT = path.join(__dirname, '..')
 
-// 🚧 Use ['ENV_NAME'] avoid vite:define plugin - Vite@2.x
 export const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL']
 export const MAIN_DIST = path.join(process.env.APP_ROOT, 'dist-electron')
 export const RENDERER_DIST = path.join(process.env.APP_ROOT, 'dist')
@@ -27,10 +26,20 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL ? path.join(process.env.APP_ROOT, 
 let win: BrowserWindow | null
 
 function createWindow() {
+  if (Notification.isSupported()){
+    const notif = new Notification({
+      title: "Welcome to Spot The Phish!",
+      body: "Thank you for trying our app, if you believe something is wrong, please check our GitHub page.",
+    })
+    notif.show()
+  }
   win = new BrowserWindow({
     icon: path.join(process.env.VITE_PUBLIC, 'electron-vite.svg'),
+    autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
+      devTools: false,
+      nodeIntegration: true,
     },
   })
 
