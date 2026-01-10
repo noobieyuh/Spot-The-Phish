@@ -1,10 +1,8 @@
 import { app, BrowserWindow, dialog, ipcMain } from 'electron'
-import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import { Notification } from 'electron'
 
-const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 ipcMain.handle('open-file', async () => {
@@ -17,18 +15,8 @@ ipcMain.handle('open-file', async () => {
   return result.filePaths[0]
 })
 
-// The built directory structure
-//
-// ├─┬─┬ dist
-// │ │ └── index.html
-// │ │
-// │ ├─┬ dist-electron
-// │ │ ├── main.js
-// │ │ └── preload.mjs
-// │
 process.env.APP_ROOT = path.join(__dirname, '..')
 
-// 🚧 Use ['ENV_NAME'] avoid vite:define plugin - Vite@2.x
 export const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL']
 export const MAIN_DIST = path.join(process.env.APP_ROOT, 'dist-electron')
 export const RENDERER_DIST = path.join(process.env.APP_ROOT, 'dist')
@@ -40,8 +28,8 @@ let win: BrowserWindow | null
 function createWindow() {
   if (Notification.isSupported()){
     const notif = new Notification({
-      title: "Welcome to Spot The Phish :3",
-      body: "Thank you for trying our app, if you believe something is wrong, please check our GitHub :D",
+      title: "Welcome to Spot The Phish!",
+      body: "Thank you for trying our app, if you believe something is wrong, please check our GitHub page.",
     })
     notif.show()
   }
@@ -51,7 +39,7 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
       devTools: false,
-      nodeIntegration: true
+      nodeIntegration: true,
     },
   })
 

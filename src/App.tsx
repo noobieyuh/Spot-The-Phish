@@ -1,31 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/electron-vite.animate.svg'
 import './App.css'
 
 function uploadFile()
 {
-  window.electronAPI.openFileDialog().then((filePath: string) => {
+  window.electronAPI.openFileDialog().then((filePath: string | null) => {
     if (filePath) {
-      console.log('File:', filePath)
+      document.getElementById('results')!.innerHTML = 'Rating: (WIP)'
     }
   })
 }
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <h1>Spot The Phish</h1>
       <p className="info">
-        Upload a <code> .txt </code> file to get started using the button below :p
+        Upload a <code> .txt </code> file to get started using the button below
       </p>
       <div className="card">
         <button onClick={uploadFile}>
           Upload File
         </button>
       </div>
+      <p id="results">Results will be here!</p>
       <p className="info">
         (This is a prototype, this is not an accurate representation of the final product)
       </p>
