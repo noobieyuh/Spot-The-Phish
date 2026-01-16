@@ -126,7 +126,7 @@ export default function App() {
 
       <p id="results">{result}</p>
 
-      <p className="info">(Andy Sucks.)</p>
+      <p className="info">(This is a prototype.)</p>
       <p className="info">
         <a href="https://github.com/noobieyuh/Spot-The-Phish" target="_blank" rel="noreferrer">
           GitHub
