@@ -137,9 +137,7 @@ function readUserFile(file: File): Promise<string> {
   });
 }
 
-// -----------------------------
-// React Component
-// -----------------------------
+// react
 export default function App() {
   const [model, setModel] = useState<tf.LayersModel | tf.GraphModel | null>(null);
   const [loading, setLoading] = useState(true);
@@ -218,11 +216,11 @@ useEffect(() => {
       const percent = (prob * 100).toFixed(1);
 
       if (prob > 0.8) {
-        setResult(`High phishing likelihood (${percent}%). You're chopped cheese lowkenuinely.`);
+        setResult(`High phishing likelihood (${percent}%). Do not trust!`);
       } else if (prob > 0.5) {
-        setResult(`Moderate phishing likelihood (${percent}%). You might get swissed cheesed so proceed with caution gangalang.`);
+        setResult(`Moderate phishing likelihood (${percent}%). Proceed with caution...`);
       } else {
-        setResult(`Low phishing likelihood (${percent}%). You're cool as biscuits - keep swinging that thang.`);
+        setResult(`Low phishing likelihood (${percent}%). You should be okay!`);
       }
 
       input.value = "";
